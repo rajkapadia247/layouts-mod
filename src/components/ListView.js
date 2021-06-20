@@ -14,7 +14,7 @@ class ListView extends Component {
 
     render() { 
         return (
-					<div className="list-main">
+					<div className="list-main fadeInDown delay">
 						<table>
 							<thead>
 								<tr>
@@ -28,7 +28,9 @@ class ListView extends Component {
 									<tr key={item[0]}>
 										<td>{item[0]}</td>
 										{this.state.uniqueFiles.map((fileName) => (
-											<td key={fileName}>{item[1][fileName] ? item[1][fileName] : 0}</td>
+											<td key={fileName}>
+												{item[1][fileName] ? item[1][fileName] : 0}
+											</td>
 										))}
 										<td>
 											{Object.entries(item[1]).reduce(

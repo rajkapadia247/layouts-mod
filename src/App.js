@@ -20,6 +20,7 @@ class App extends React.Component {
 			<>
 				<div className="top-flex">
 					<button
+						className="fadeInDown"
 						onClick={() => {
 							this.setState({
 								viewType: this.state.viewType === "grid" ? "list" : "grid",

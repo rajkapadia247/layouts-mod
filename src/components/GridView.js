@@ -6,27 +6,36 @@ class GridView extends Component {
 		super(props);
 		this.state = {
 			items: [],
-			total: 0
+			total: 0,
 		};
 	}
 
 	componentDidMount() {
 		const items = getDataForGridView();
-		const total = Object.entries(items).reduce((total, item) => total+item[1], 0);
+		const total = Object.entries(items).reduce(
+			(total, item) => total + item[1],
+			0
+		);
 		this.setState({
 			items,
-			total
+			total,
 		});
 	}
 
 	getItemWidth(itemCount) {
-		return`${itemCount/this.state.total*100}%`
+		return `${(itemCount / this.state.total) * 100}%`;
 	}
 	render() {
 		return (
-			<div className="grid-main">
+			<div className="grid-main fadeInDown delay">
 				{Object.entries(this.state.items).map((item) => (
-					<div key={item[0]} className="grid-item" style={{width: this.getItemWidth(item[1])}}>{item[0]}</div>
+					<div
+						key={item[0]}
+						className="grid-item"
+						style={{ width: this.getItemWidth(item[1]) }}
+					>
+						{item[0]}
+					</div>
 				))}
 			</div>
 		);
